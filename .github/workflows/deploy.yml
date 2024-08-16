@@ -1,0 +1,20 @@
+name: Deploy on Merge to Main
+
+on:
+  push:
+    branches:
+      - production
+    paths-ignore:  # Tùy chọn, nếu bạn muốn bỏ qua một số file khi push lên
+      - 'docs/**'
+      - '*.md'
+
+jobs:
+  deploy:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to production
+        run: git pull origin production
