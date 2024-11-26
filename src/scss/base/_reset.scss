@@ -1,0 +1,153 @@
+@use './variables' as variables;
+html {
+    color: #000;
+    background: #FFF;
+    scroll-behavior: auto;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/* ============================================================
+  Html, Body
+============================================================ */
+body {
+    color: #1E1E1E;
+    font-weight: 400;
+    @include variables.font-size(14);
+    line-height: 1.2;
+    -webkit-text-size-adjust: 100%;
+    margin: 0;
+    @include variables.font-family(Noto-sans);
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    &-fluid{
+        max-width: 100%;
+
+        @media(max-width: 767px){
+            padding: 0 20px;
+        }
+    }
+
+    @media(max-width: 1340px){
+        padding: 0 32px;
+    }
+
+    @media(max-width: 540px){
+        padding: 0 20px;
+    }
+}
+
+.container-small {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.pc {
+    display: block;
+    @include variables.media(767, "max") {
+        display: none;
+    }
+}
+
+.sp {
+    display: none!important;
+    @include variables.media(767, "max") {
+        display: block!important;
+    }
+}
+
+
+.visually-hidden{
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    transition: opacity 0.5s;
+    outline: 0;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+img {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+figure {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+
+    img {
+        vertical-align: top;
+    }
+}
+
+b {
+    font-weight: bold;
+}
+
+strong {
+    font-weight: 500;
+}
+
+ol,
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    line-height: 1.8;
+    &:not(:last-child){
+        margin-bottom: 32px;
+        @media (max-width: 540px) {
+            margin-bottom: 16px;
+         }
+    }
+}
+
+h1{
+    @include variables.font-family(default);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+   font-weight: 500; 
+}
+
+sup {
+    @include variables.font-size(18);
+
+    &.small {
+        @include variables.font-size(12);
+    }
+}
+
+/* ============================================================
+  Clearfix
+============================================================ */
+.clearfix::after {
+    clear: both;
+    content: "";
+    display: block;
+}

@@ -1,0 +1,64 @@
+- gioi thieu project
+
+
+1  TVC
+
+ 1.1
+	 
+- 7 parten design page
+
+- jamstack:
+
+	+  ractjs - render htmlnhanh hon an toan hon 
+	+ jamstack.org lean 
+
+-  hieu qua cao hon nhung cai khac nhu vue reacjt
+
+- spacepeed  cao nen on hien thi nhanh hon
+
+- headless cms  x cdn de add du lieu
+
+- kho khan:
+
+	+ khong du tai lieu
+
+	+ kho hoc
+
+	+ blog cua nhung ng tren tgioi de hieu them
+
+
+2. JINS
+
+- phuc tap, phien
+
+- kho thiet ke
+
+- khong dong nhat dc tinh nang
+
+- co nhieu ng tham gia k xac nhan dc pham vi anh huong
+
+- moi truong doc quyen khong hoatdong o local
+
+- figjam de xu li ->figma chia se thong tin
+
+- tang cuong giao tiep 
+
+- hono giai quyet dc van de xhtml 
+
+- bun
+
+
+3. TOKYO KITAKU
+
+- depart  x kilala - > hop tac
+
+- AA mai hoc
+
+- tap trung code dev
+
+
+
+
+
+
+

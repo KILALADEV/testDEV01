@@ -1,0 +1,119 @@
+@charset "UTF-8";
+@use 'sass:meta';
+:root{
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --default-color: #5BB3BC;
+  --background-primary: #1E1E1E;
+  --background-secondary: #EBF0EF;
+  --background-third: #000;
+  --background-four: #F8DD6D;
+  --background-five: #EBF0EF;
+  --background-pink: #FFF7F7;
+  --background-blue: #E4F3FA;
+  --secondary-color: #D05F52;
+  --third-color: #2674AB;
+  --border-primary: #D0D5D4;
+}
+/* ============================================================
+  Break Point
+============================================================ */
+$bp-resize: (
+  "1280": 1280,
+  "1240": 1240,
+  "1100": 1100,
+  "1024": 1024,
+  "1000": 1000,
+  "960": 960,
+  "768": 768,
+  "720": 720,
+  "640": 640,
+  "600": 600,
+  "480": 480,
+  "375": 375,
+  "320": 320,
+);
+
+@mixin media($media-width, $option: "min") {
+  @if "number" == meta.type-of($media-width) {
+    @if "min" == $option{
+      $media-width: $media-width + 1;
+      @media screen and (min-width: #{$media-width}px) {
+        @content;
+      }
+    } @else if "max" == $option {
+      @media screen and (max-width: #{$media-width}px) {
+        @content;
+      }
+    }
+  } @else if "string" == meta.type-of($media-width) {
+    @if 1 == str-index($media-width, "bp") {
+      $bp-width: map-get($bp-resize, str-slice($media-width, 4, -1));
+      @if null != $bp-width {
+        @media screen and (max-width: #{$bp-width}px) {
+          @content;
+        }
+      }
+    } @else if 1 == str-index($media-width, "mbp") {
+      $bp-width: map-get($bp-resize, str-slice($media-width, 5, -1)) + 1;
+      @if null != $bp-width {
+        @media screen and (min-width: #{$bp-width}px) {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&display=swap');
+$fonts: (
+  "default": (
+    'Noto Serif JP', serif
+  ),
+  "Overpass": (
+   "Overpass", sans-serif
+  ),
+  "Noto-sans": (
+    'Noto Sans JP', sans-serif
+  ),
+);
+
+@mixin font-family($font-family) {
+  $font: map-get($fonts, $font-family);
+  @if null != $font {
+    font-family: $font;
+  }
+}
+/* ============================================================
+   Font Size
+============================================================ */
+$font-default: 16;
+@mixin font-size($font-size) {
+  font-size: #{$font-size/$font-default}rem;
+
+}
+
+/* ============================================================
+  Scale Image
+============================================================ */
+@mixin img-scale($height: "100%", $position: "50% 50%") {
+  .image-wrapper {
+      display: block;
+      overflow: hidden;
+      position: relative;
+      img {
+          position: absolute;
+          object-position: #{$position};
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+      &::after {
+          content: "";
+          display: block;
+          padding-bottom: #{$height};
+      }
+  }
+}

@@ -1,0 +1,5 @@
+@use '../base/variables' as *;
+body{
+    color: red;
+    @include font-size(18);
+}
